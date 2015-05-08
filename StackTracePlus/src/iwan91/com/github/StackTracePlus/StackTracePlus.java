@@ -90,29 +90,15 @@ public class StackTracePlus {
 
 				}
 			}
-			try{
-				if(object.getClass().isArray()){
-					for(int i=0;i<((Object[]) object).length;i++){
-						String tmp=getAllFieldsWithValuesAsString(((Object[]) object)[i],indent+1);
-						if(tmp!=null){
-							response+=indent(indent+1)+"Array["+i+"]\n"+tmp;
-						}
+			if(object.getClass().isArray()){
+				for(int i=0;i<Array.getLength(object);i++){
+					String tmp=getAllFieldsWithValuesAsString(Array.get(object, i),indent+1);
+					if(tmp!=null){
+						response+=indent(indent+1)+"Array["+i+"]\n"+tmp;
 					}
 				}
 			}
-			catch(Exception e){	
-				
-			}
-			finally{
-				if(object.getClass().isArray()){
-					for(int i=0;i<Array.getLength(object);i++){
-						String tmp=getAllFieldsWithValuesAsString(Array.get(object, i),indent+1);
-						if(tmp!=null){
-							response+=indent(indent+1)+"Array["+i+"]\n"+tmp;
-						}
-					}
-				}
-			}
+
 		}
 
 		return response;
