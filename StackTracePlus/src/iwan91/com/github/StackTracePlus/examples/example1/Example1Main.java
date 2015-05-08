@@ -1,4 +1,4 @@
-package iwan91.com.github.StackTracePlus.example1;
+package iwan91.com.github.StackTracePlus.examples.example1;
 
 import iwan91.com.github.StackTracePlus.StackTracePlus;
 
