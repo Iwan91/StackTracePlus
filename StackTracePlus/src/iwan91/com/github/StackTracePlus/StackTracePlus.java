@@ -45,10 +45,6 @@ public class StackTracePlus {
 		String response="";
 		if(object.getClass().isArray()==false){
 			response+=indent(indent)+object.getClass().getName()+"\n";
-			/*if(indent>1) 
-				response+="\n"+indent(indent)+object.getClass().getName()+"\n";
-			else
-				response+="\n"+indent(indent)+object.getClass().getName();*/
 		}
 		if(isPrimitive(object)){
 			response+=indent(indent+2)+object.getClass().getName()+": "+object.toString()+"\n";
@@ -64,11 +60,10 @@ public class StackTracePlus {
 					try {
 						tmp = getAllFieldsWithValuesAsString(fields.get(i).get(object),indent+1);
 						if(tmp!=null){
-							//response+="\n"+indent(indent+1)+"Array["+0+"]\n"+tmp;
 							response+=tmp;
 						}
 					} catch (Exception e) {
-						return null;
+						return indent(indent)+"!!!Something go wrong!!!\n";
 					}	
 				}
 				else{
@@ -85,14 +80,16 @@ public class StackTracePlus {
 						}
 					}
 					catch(Exception e){
-						return null;
+						return indent(indent)+"!!!Something go wrong!!!\n";
 					}
 
 				}
 			}
 			if(object.getClass().isArray()){
 				for(int i=0;i<Array.getLength(object);i++){
-					String tmp=getAllFieldsWithValuesAsString(Array.get(object, i),indent+1);
+					String tmp=null;
+					if(Array.get(object, i)!=null)
+						tmp=getAllFieldsWithValuesAsString(Array.get(object, i),indent+1);
 					if(tmp!=null){
 						response+=indent(indent+1)+"Array["+i+"]\n"+tmp;
 					}

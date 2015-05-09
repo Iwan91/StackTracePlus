@@ -9,23 +9,25 @@ public class Example1Main {
 		ClassA a=null;
 		ClassB b=null;
 		ClassC c=null;
+		ClassE e=null;
 		try{
 			a=new ClassA();
 			b=new ClassB();
 			c=new ClassC();
+			e=new ClassE();
 			throw new Exception("myException");
 		}
-		catch(Exception e){
+		catch(Exception ex){
 			/*Parameters for function StackTracePlus.printStackTrace and StackTracePlus.getStackTrace
 			  1st parameter exception.Type Exception. Can be null
 			  2nd parameter additional message.Type String. Can be null
 			  others parameters. Type Object. Can be from 0 to n objects.*/
 
 			//Print stackTree
-			StackTracePlus.printStackTrace(e, "additional message", a,b,c);
+			StackTracePlus.printStackTrace(ex, "additional message", a,b,c,e);
 			
 			//Get stackTree. Return String.
-			//StackTracePlus.getStackTrace(e, "additional message", a,b,c);
+			//String s=StackTracePlus.getStackTrace(ex, "additional message", a,b,c,e);
 		}
 	}
 
