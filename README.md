@@ -4,13 +4,10 @@ Library for Java to get more info when catch exception
 ## Usage
 You can find more examples [here](https://github.com/Iwan91/StackTracePlus/tree/master/StackTracePlus/src/iwan91/com/github/StackTracePlus/examples)
 
-Example usage (source code from [example1](https://github.com/Iwan91/StackTracePlus/tree/master/StackTracePlus/src/iwan91/com/github/StackTracePlus/examples/example1)):
-
+## Example1:
 Run below script:
 ```java
 public class Example1Main {
-	
-	
 	public static void main(String[] args) {
 		ClassA a=null;
 		ClassB b=null;
@@ -124,6 +121,97 @@ Java Variables:
          MAX_ARRAY_SIZE = int: 2147483639
       a = int: 4
       s = java.lang.String: classD
+
+Message:
+additional message
+```
+## Example2:
+```java
+public class Example2Main {
+	public static void main(String[] args) {
+		ClassA a=null;
+		ClassB b=null;
+		ClassC c=null;
+		ClassE e=null;
+		try{
+			a=new ClassA();
+			b=new ClassB();
+			c=new ClassC();
+			e=new ClassE();
+			throw new Exception("myException");
+		}
+		catch(Exception ex){
+			/*Parameters for function StackTracePlus.printStackTrace and StackTracePlus.getStackTrace
+			  1st parameter exception.Type Exception. Can be null
+			  2nd parameter additional message.Type String. Can be null
+			  others parameters. Type Object. Can be from 0 to n objects.*/
+
+			//Print stackTree
+			StackTracePlusJSON.printStackTrace(ex, "additional message", a,b,c,e);
+			
+			//Get stackTree. Return String.
+			//String s=StackTracePlusJSON.getStackTrace(ex, "additional message", a,b,c,e);
+
+		}
+	}
+}
+```
+and you get this stackTrace:
+```java
+java.lang.Exception: myException
+	at iwan91.com.github.StackTracePlus.examples.Example2Main.main(Example2Main.java:18)
+
+Java Variables:
+   Object[0]
+   iwan91.com.github.StackTracePlus.examples.ClassA
+   {
+     "array": [
+       0,
+       0,
+       0
+     ],
+     "b": 2,
+     "s": 22,
+     "i": 222,
+     "l": 2222,
+     "f": 2.2,
+     "d": 2.22,
+     "bool": true,
+     "c": "2",
+     "str": "22",
+     "e": "DOG",
+     "objectC": {}
+   }
+
+   Object[1]
+   iwan91.com.github.StackTracePlus.examples.ClassB
+   {
+     "b": 0,
+     "s": 0,
+     "i": 0,
+     "lL": 0,
+     "f": 0.0,
+     "d": 0.0,
+     "bool": false,
+     "c": "\u0000"
+   }
+
+   Object[2]
+   iwan91.com.github.StackTracePlus.examples.ClassC
+   {}
+
+   Object[3]
+   iwan91.com.github.StackTracePlus.examples.ClassE
+   {
+     "s1": "classE",
+     "array": [
+       5,
+       10,
+       15
+     ],
+     "a": 4,
+     "s": "classD"
+   }
 
 Message:
 additional message
