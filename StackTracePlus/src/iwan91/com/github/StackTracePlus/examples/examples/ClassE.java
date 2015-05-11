@@ -1,4 +1,4 @@
-package iwan91.com.github.StackTracePlus.examples.example1;
+package iwan91.com.github.StackTracePlus.examples.examples;
 
 import java.util.ArrayList;
 import java.util.List;
