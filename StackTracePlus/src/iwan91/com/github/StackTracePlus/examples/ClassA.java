@@ -1,4 +1,4 @@
-package iwan91.com.github.StackTracePlus.examples.examples;
+package iwan91.com.github.StackTracePlus.examples;
 
 public class ClassA {
 	int array[]=new int[3];

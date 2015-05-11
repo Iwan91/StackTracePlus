@@ -1,4 +1,4 @@
-package iwan91.com.github.StackTracePlus.examples.examples;
+package iwan91.com.github.StackTracePlus.examples;
 
 public class ClassB {
 	byte b;
