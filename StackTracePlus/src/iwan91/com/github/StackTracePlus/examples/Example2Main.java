@@ -1,6 +1,5 @@
 package iwan91.com.github.StackTracePlus.examples;
 
-import iwan91.com.github.StackTracePlus.StackTracePlus;
 import iwan91.com.github.StackTracePlus.StackTracePlusJSON;
 
 public class Example2Main {
